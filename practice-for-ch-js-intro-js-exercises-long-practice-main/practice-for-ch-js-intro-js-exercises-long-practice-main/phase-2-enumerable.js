@@ -27,6 +27,23 @@ console.log([1,2,3].myMap(double));
 // end
 
 
+Array.prototype.myReduce = function(callback, initialValue) {
+  let sum = 0; 
+  if (initialValue){
+    sum += initialValue 
+  }; //and or initialValue is its not 0?
+  this.myEach(function(num) {
+    sum = callback(sum, num);
+  });
+  return sum;
+};
+
+function helper(num1, num2){
+  return num1 + num2;
+};
+
+console.log([1,2,3].myReduce(helper));
+
 
 // def myeach(prc) 
 //   i = 0
