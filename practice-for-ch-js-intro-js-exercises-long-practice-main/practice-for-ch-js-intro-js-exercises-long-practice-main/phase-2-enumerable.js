@@ -7,19 +7,22 @@ Array.prototype.myEach = function(callback) {
 }
 
 function double(num) {
-  console.log(num * 2)
+  return(num * 2)
   }
 // [1,2,3].myEach(double)
 
 Array.prototype.myMap = function(callback) {
   let result = [];
-  for (let i = 0; i < this.length; i++) {
-    result.push(callback(this[i]));
-  }
+
+  this.myEach(function(num) {
+  result.push(callback(num));
+  });
   return result;
 }
 
-[1,2,3].myMap(myEach)
+console.log([1,2,3].myMap(double));
+
+
 // [1,2,3].each do |ele|
 // end
 
